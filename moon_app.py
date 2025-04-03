@@ -145,17 +145,68 @@ if 'selected_date' not in st.session_state:
 if 'selected_time' not in st.session_state:
     st.session_state.selected_time = initial_default_time.time()
 
+# Define time navigation callback functions
+def fast_backward():
+    # Create a datetime object from the current date and time
+    current_dt = datetime.datetime.combine(
+        st.session_state.selected_date,
+        st.session_state.selected_time,
+        tzinfo=pytz.UTC
+    )
+    # Calculate new datetime (1 hour back)
+    new_dt = current_dt - datetime.timedelta(hours=1)
+    # Update session state for the next render
+    st.session_state.selected_date = new_dt.date()
+    st.session_state.selected_time = new_dt.time()
+
+def backward():
+    # Create a datetime object from the current date and time
+    current_dt = datetime.datetime.combine(
+        st.session_state.selected_date,
+        st.session_state.selected_time,
+        tzinfo=pytz.UTC
+    )
+    # Calculate new datetime (15 minutes back)
+    new_dt = current_dt - datetime.timedelta(minutes=15)
+    # Update session state for the next render
+    st.session_state.selected_date = new_dt.date()
+    st.session_state.selected_time = new_dt.time()
+
+def forward():
+    # Create a datetime object from the current date and time
+    current_dt = datetime.datetime.combine(
+        st.session_state.selected_date,
+        st.session_state.selected_time,
+        tzinfo=pytz.UTC
+    )
+    # Calculate new datetime (15 minutes forward)
+    new_dt = current_dt + datetime.timedelta(minutes=15)
+    # Update session state for the next render
+    st.session_state.selected_date = new_dt.date()
+    st.session_state.selected_time = new_dt.time()
+
+def fast_forward():
+    # Create a datetime object from the current date and time
+    current_dt = datetime.datetime.combine(
+        st.session_state.selected_date,
+        st.session_state.selected_time,
+        tzinfo=pytz.UTC
+    )
+    # Calculate new datetime (1 hour forward)
+    new_dt = current_dt + datetime.timedelta(hours=1)
+    # Update session state for the next render
+    st.session_state.selected_date = new_dt.date()
+    st.session_state.selected_time = new_dt.time()
+
 # Date picker
 selected_date = st.sidebar.date_input(
     "Select Date",
-    value=st.session_state.selected_date,
     key='selected_date' # Use key to automatically update session state
 )
 
 # Time picker
 selected_time = st.sidebar.time_input(
     "Select Time (UTC)",
-    value=st.session_state.selected_time,
     key='selected_time' # Use key to automatically update session state
 )
 
@@ -168,6 +219,39 @@ selected_datetime = datetime.datetime.combine(
 
 # Display selected date and time
 st.sidebar.write(f"Selected: {selected_datetime.strftime('%Y-%m-%d %H:%M UTC')}")
+
+# Add custom CSS for button styling
+st.markdown("""
+<style>
+    /* Custom button style for navigation buttons */
+    section[data-testid="stSidebar"] div[data-testid="stHorizontalBlock"] button {
+        background-color: #00A6ED !important;
+        color: white !important;
+        border-color: #00A6ED !important;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# Time navigation buttons
+st.sidebar.markdown("### Time Navigation")
+
+# Create a container for the buttons
+button_container = st.sidebar.container()
+
+# Create columns for the buttons
+col1, col2, col3, col4 = button_container.columns(4)
+
+# Fast backward button (-1 hour)
+col1.button("⏪", help="Go back 1 hour", key="fast_backward", on_click=fast_backward)
+
+# Backward button (-15 minutes)
+col2.button("◀️", help="Go back 15 minutes", key="backward", on_click=backward)
+
+# Forward button (+15 minutes)
+col3.button("▶️", help="Go forward 15 minutes", key="forward", on_click=forward)
+
+# Fast forward button (+1 hour)
+col4.button("⏩", help="Go forward 1 hour", key="fast_forward", on_click=fast_forward)
 
 # Calculate Moon's position and path
 current_moon_lat, current_moon_lon = get_moon_position(selected_datetime)
