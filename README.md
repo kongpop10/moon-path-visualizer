@@ -1,61 +1,123 @@
 # 🌓 Moon Path Visualizer
 
-A Streamlit web application that visualizes the Moon's path across the globe and the day/night terminator. The app shows where the Moon is directly overhead and how Earth's day/night regions change over time.
+[![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://www.python.org/downloads/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.24+-red.svg)](https://streamlit.io/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-## Features
+An interactive web application that visualizes the Moon's path across the globe and Earth's day/night terminator in real-time. Watch where the Moon is directly overhead and how Earth's day/night regions change throughout the day.
 
-- Real-time Moon position visualization
-- 24-hour Moon path prediction
-- Day/night terminator display
-- Interactive date and time selection
-- Global orthographic projection
-- UTC time support
+[Live Demo](https://moonpath.streamlit.app) <!-- Visit the deployed app here -->
 
-## Installation
+![App Screenshot](#) <!-- Add a screenshot of your app here -->
+
+## ✨ Features
+
+- 🌍 Real-time Moon position visualization on an interactive 3D globe
+- 🛣️ 24-hour Moon path prediction
+- 🌓 Dynamic day/night terminator display
+- 📅 Interactive date and time selection
+- 🌐 Global orthographic projection with zoom and pan
+- 🕒 UTC time support
+- 🗺️ Country borders and coastlines
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Python 3.7 or higher
+- pip (Python package installer)
+
+### Installation
 
 1. Clone this repository:
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/kongpop10/moon-path-visualizer.git
+cd moon-path-visualizer
 ```
 
-2. Install the required packages:
+2. Create and activate a virtual environment (recommended):
+```bash
+# Windows
+python -m venv venv
+venv\Scripts\activate
+
+# macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+```
+
+3. Install the required packages:
 ```bash
 pip install -r requirements.txt
 ```
 
-## Usage
+### Running the App
 
-1. Run the Streamlit app:
+1. Start the Streamlit server:
 ```bash
 streamlit run moon_app.py
 ```
 
-2. Open your web browser and navigate to the URL shown in the terminal (typically http://localhost:8501)
+2. Open your web browser and navigate to:
+```
+http://localhost:8501
+```
 
-3. Use the sidebar controls to:
-   - Select a date
-   - Choose a time (in UTC)
-   - View the Moon's position and path
+## 🎯 How to Use
 
-## Visualization Guide
+1. **Date Selection**: Use the sidebar date picker to choose any date
+2. **Time Selection**: Select the time in UTC using the time picker
+3. **Visualization**:
+   - Yellow line shows the Moon's 24-hour path
+   - Large yellow dot indicates current Moon position
+   - Light blue areas represent daylight regions
+   - Dark blue areas show night regions
+   - Orange line represents the dawn/dusk terminator
 
-- Yellow line: Moon's path over 24 hours
-- Large yellow dot: Current Moon position
-- Light blue area: Daylight regions
-- Dark blue area: Night regions
-- Orange line: Day/night terminator (dawn/dusk line)
+## 🔧 Technical Details
 
-## Technical Notes
+### Visualization Components
+- **Moon Position**: Shows where the Moon is directly overhead
+- **Path Tracking**: 24-hour prediction with hourly points
+- **Day/Night Display**: Real-time calculation of Earth's illumination
+- **Terminator Line**: Accurate dawn/dusk boundary visualization
 
-- All calculations are approximations suitable for visualization purposes
-- Times are in UTC (Coordinated Universal Time)
-- Uses ephem library for astronomical calculations
-- Positions show where the Moon is directly overhead
+### Technologies Used
+- **Streamlit**: Web application framework
+- **Plotly**: Interactive visualization
+- **ephem**: Astronomical calculations
+- **NumPy/Pandas**: Data processing
+- **pytz**: Timezone handling
 
-## Requirements
+## 📝 Notes
 
-See `requirements.txt` for detailed package requirements.
+- All astronomical calculations are approximations suitable for visualization
+- Times are displayed in UTC (Coordinated Universal Time)
+- Position calculations show where the Moon is directly overhead
+- Visualization accuracy is optimized for general use
 
-## License
+## 🤝 Contributing
 
-[Your chosen license]
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👏 Acknowledgments
+
+- [Streamlit](https://streamlit.io/) for the amazing web app framework
+- [ephem](https://rhodesmill.org/pyephem/) for astronomical calculations
+- [Plotly](https://plotly.com/) for interactive visualizations
+
+## 📧 Contact
+
+kongpop10 - kongpopu@outlook.com
+
+Project Link: [https://github.com/kongpop10/moon-path-visualizer](https://github.com/kongpop10/moon-path-visualizer)
