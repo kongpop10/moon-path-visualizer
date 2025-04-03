@@ -8,7 +8,7 @@ An interactive web application that visualizes the Moon's path across the globe 
 
 [Live Demo](https://moonpath.streamlit.app) <!-- Visit the deployed app here -->
 
-![App Screenshot](#) <!-- Add a screenshot of your app here -->
+![App Screenshot](https://github.com/kongpop10/moon-path-visualizer/assets/screenshots/app_screenshot.png) <!-- Screenshot of the Moon Path Visualizer app -->
 
 ## ✨ Features
 
