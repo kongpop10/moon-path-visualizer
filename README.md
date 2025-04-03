@@ -8,7 +8,7 @@ An interactive web application that visualizes the Moon's path across the globe 
 
 [Live Demo](https://moonpath.streamlit.app) <!-- Visit the deployed app here -->
 
-![App Screenshot](https://github.com/kongpop10/moon-path-visualizer/assets/screenshots/app_screenshot.png) <!-- Screenshot of the Moon Path Visualizer app -->
+![App Screenshot](Screenshot.png) <!-- Screenshot of the Moon Path Visualizer app -->
 
 ## ✨ Features
 
@@ -16,6 +16,7 @@ An interactive web application that visualizes the Moon's path across the globe 
 - 🛣️ 24-hour Moon path prediction
 - 🌓 Dynamic day/night terminator display
 - 📅 Interactive date and time selection
+- ⏪⏩ Time navigation buttons for easy time adjustment
 - 🌐 Global orthographic projection with zoom and pan
 - 🕒 UTC time support
 - 🗺️ Country borders and coastlines
@@ -67,7 +68,12 @@ http://localhost:8501
 
 1. **Date Selection**: Use the sidebar date picker to choose any date
 2. **Time Selection**: Select the time in UTC using the time picker
-3. **Visualization**:
+3. **Time Navigation**: Use the navigation buttons to adjust time:
+   - ⏪ Fast backward: Go back 1 hour
+   - ◀️ Backward: Go back 15 minutes
+   - ▶️ Forward: Go forward 15 minutes
+   - ⏩ Fast forward: Go forward 1 hour
+4. **Visualization**:
    - Yellow line shows the Moon's 24-hour path
    - Large yellow dot indicates current Moon position
    - Light blue areas represent daylight regions
@@ -81,6 +87,7 @@ http://localhost:8501
 - **Path Tracking**: 24-hour prediction with hourly points
 - **Day/Night Display**: Real-time calculation of Earth's illumination
 - **Terminator Line**: Accurate dawn/dusk boundary visualization
+- **Time Navigation**: Intuitive buttons for adjusting time in different increments
 
 ### Technologies Used
 - **Streamlit**: Web application framework
